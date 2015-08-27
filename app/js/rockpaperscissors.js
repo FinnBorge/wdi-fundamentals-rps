@@ -25,22 +25,14 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    if(move=null){
-        getInput()
-    } else {
-        return move;
-    }
+    return move || getInput();
 }
 
 function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    if(move=null){
-        randomPlay()
-    } else {
-        return move;
-    }
+    return move || randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
@@ -49,6 +41,42 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     /* YOUR CODE HERE */
+    if(playerMove === 'scissors'){
+        switch (computerMove) {
+            'scissors':
+            winner = 'tie';
+            break;
+            'paper':
+            winner = 'player';
+            break;
+            'rock':
+            winner = 'computer';
+        }
+    } else if(playerMove === 'paper'){
+        switch (computerMove) {
+            'scissors':
+            winner = 'computer';
+            break;
+            'paper':
+            winner = 'tie';
+            break;
+            'rock':
+            winner = player;
+            break;
+        }
+    } else if(playerMove === 'rock'){
+        switch (computerMove) {
+            'scissors':
+            winner = 'player';
+            break;
+            'paper':
+            winner = 'computer';
+            break;
+            'rock':
+            winner = 'tie';
+            break;
+        }
+    }
     return winner;
 }
 
