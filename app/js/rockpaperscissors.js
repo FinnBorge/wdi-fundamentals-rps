@@ -1,7 +1,8 @@
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
-    return prompt();
+    console.log();
+    return prompt("Please choose either 'rock', 'paper', or 'scissors'.");
 }
+
 function randomPlay() {
     var randomNumber = Math.random();
     if (randomNumber < 0.33) {
@@ -67,20 +68,19 @@ function playToFive(){
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-        for(i=0; i<5; i++){
-            var playerMove = getPlayerMove();
-            var computerMove = getComputerMove();
-            var tempWinner = getWinner(playerMove, computerMove);
-                if(tempWinner == 'player'){
-                    playerWins = playerWins +1;
-                }
-                else if(tempWinner == 'computer'){
-                    computerWins = computerWins +1;
-                }
-                else{
-                    i = i-1;
-                }
-            
+//*   while (playerWins < 5 && computerWins < 5) {}; is probably the best way but I like the "i - 1"
+    for (i = 0; i < 5; i++) {
+        var playerMove = getPlayerMove();
+        var computerMove = getComputerMove();
+        var tempWinner = getWinner(playerMove, computerMove);
+        if (tempWinner == 'player') {
+            playerWins = playerWins + 1;
+        } else if (tempWinner == 'computer') {
+            computerWins = computerWins + 1;
+        } else {
+            i = i - 1;
         }
+    }
     return [playerWins, computerWins];
 }
+playToFive();
